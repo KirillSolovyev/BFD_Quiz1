@@ -17,11 +17,13 @@ from django.contrib import admin
 from django.urls import path
 from rest_framework_simplejwt import views as jwt_views
 from custom_auth import views
+from main import views as main_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/login/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('auth/token/refresh', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
     path('auth/register/', views.AuthViewSet.as_view({'post': 'create'}), name='register_view'),
-    path('auth/login2/', views.AuthViewSet.as_view({'post': 'retrieve'}), name='login_view')
+    path('auth/login2/', views.AuthViewSet.as_view({'post': 'retrieve'}), name='login_view'),
+    path('books/', main_views.BookViewSets.as_view({'post': 'list'}), name='books')
 ]
