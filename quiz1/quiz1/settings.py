@@ -76,8 +76,12 @@ WSGI_APPLICATION = 'quiz1.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'quiz1',
+        'USER': 'quiz1',
+        'PASSWORD': 'quiz1',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
