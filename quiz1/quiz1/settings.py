@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'quiz1'
+    'rest_framework',
+    'quiz1',
+    'custom_auth'
 ]
 
 MIDDLEWARE = [
@@ -104,6 +106,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'custom_auth.User'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
